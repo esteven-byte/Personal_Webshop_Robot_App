@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230421 01:46:12.269" rpa="false" schemaversion="4">
+<suite id="s1" name="Calculate Discount" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\Coupons\calculate_discount.robot">
+<test id="s1-t1" name="Coupon should be applied correctly" line="14">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${HOME PAGE URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230421 01:46:12.692" level="INFO">Opening browser 'chrome' to base url 'http://localhost/quicksite/'.</msg>
+<status status="PASS" starttime="20230421 01:46:12.691" endtime="20230421 01:46:16.266"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>css=a.button.product_type_simple</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20230421 01:46:16.272" level="INFO">Clicking link 'css=a.button.product_type_simple'.</msg>
+<status status="PASS" starttime="20230421 01:46:16.271" endtime="20230421 01:46:16.452"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>css:span.count</arg>
+<arg>1 item</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230421 01:46:16.456" endtime="20230421 01:46:17.689"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CART}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230421 01:46:17.689" level="INFO">Opening url 'http://localhost/quicksite/cart/'</msg>
+<status status="PASS" starttime="20230421 01:46:17.689" endtime="20230421 01:46:18.795"/>
+</kw>
+<kw name="Get a valid coupon" library="demostore.coupons.Coupons">
+<var>${VALID COUPON}</var>
+<doc>:return:</doc>
+<msg timestamp="20230421 01:46:18.797" level="INFO">${VALID COUPON} = {'code': '50off', 'discount': 50}</msg>
+<status status="PASS" starttime="20230421 01:46:18.796" endtime="20230421 01:46:18.797"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${CODE}</var>
+<arg>${VALID COUPON}.get('code')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230421 01:46:18.798" level="INFO">${CODE} = 50off</msg>
+<status status="PASS" starttime="20230421 01:46:18.798" endtime="20230421 01:46:18.799"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${DISCOUNT PERCENT}</var>
+<arg>${VALID COUPON}.get('discount')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230421 01:46:18.800" level="INFO">${DISCOUNT PERCENT} = 50</msg>
+<status status="PASS" starttime="20230421 01:46:18.800" endtime="20230421 01:46:18.801"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${total before coupon}</var>
+<arg>${CART TOTAL LOCATOR}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230421 01:46:18.916" level="INFO">${total before coupon} = € 15,00</msg>
+<status status="PASS" starttime="20230421 01:46:18.801" endtime="20230421 01:46:18.916"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Total before coupon is: ${total before coupon}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230421 01:46:18.917" endtime="20230421 01:46:18.917"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=coupon_code</arg>
+<arg>${CODE}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230421 01:46:18.919" level="INFO">Typing text '50off' into text field 'id=coupon_code'.</msg>
+<status status="PASS" starttime="20230421 01:46:18.918" endtime="20230421 01:46:19.041"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>id=coupon_code</arg>
+<arg>${ENTER}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230421 01:46:19.042" level="INFO">Sending key(s) ('RETURN',) to id=coupon_code element.</msg>
+<msg timestamp="20230421 01:46:19.327" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230421 01:46:19.327" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230421 01:46:19.041" endtime="20230421 01:46:19.391"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${success message}</var>
+<arg>class=woocommerce-message</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230421 01:46:20.563" level="INFO">${success message} = Coupon code applied successfully.</msg>
+<status status="PASS" starttime="20230421 01:46:19.392" endtime="20230421 01:46:20.563"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${success message}</arg>
+<arg>Coupon code applied successfully.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230421 01:46:20.564" endtime="20230421 01:46:20.565"/>
+</kw>
+<kw name="Wait Until Element Does Not Contain" library="SeleniumLibrary">
+<arg>${CART TOTAL LOCATOR}</arg>
+<arg>${total before coupon}</arg>
+<doc>Waits until the element ``locator`` does not contain ``text``.</doc>
+<status status="PASS" starttime="20230421 01:46:20.565" endtime="20230421 01:46:21.741"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${total after coupon}</var>
+<arg>${CART TOTAL LOCATOR}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230421 01:46:21.764" level="INFO">${total after coupon} = € 7,50</msg>
+<status status="PASS" starttime="20230421 01:46:21.742" endtime="20230421 01:46:21.764"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Total after coupon is: ${total after coupon}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230421 01:46:21.764" endtime="20230421 01:46:21.765"/>
+</kw>
+<kw name="Discount should be calculated correctly" library="demostore.coupons.Coupons">
+<arg>${total before coupon}</arg>
+<arg>${total after coupon}</arg>
+<arg>${DISCOUNT PERCENT}</arg>
+<doc>Given the original price, this method verifies the given percentage is applied correctly
+to the original price to get the discounted price
+:param original_price:
+:param discounted_price:
+:param discount_percentage:
+:return:</doc>
+<status status="PASS" starttime="20230421 01:46:21.765" endtime="20230421 01:46:21.766"/>
+</kw>
+<status status="PASS" starttime="20230421 01:46:12.690" endtime="20230421 01:46:21.767"/>
+</test>
+<status status="PASS" starttime="20230421 01:46:12.271" endtime="20230421 01:46:21.769"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Calculate Discount">Calculate Discount</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

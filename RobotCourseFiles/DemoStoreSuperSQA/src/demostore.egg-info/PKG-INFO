@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: demostore
+Version: 0.1
+Summary: Automation test scripts for demostore.supersqa.com
+Home-page: http://demostore.supersqa.com
+Author: Steven Dubrosse
+Author-email: steven@supersqa.com
+License: SSQA

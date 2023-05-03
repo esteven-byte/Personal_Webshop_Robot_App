@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230422 14:40:16.865" rpa="false" schemaversion="4">
+<suite id="s1" name="Returning Customer Clean" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\Checkout\returning_customer_clean.robot">
+<test id="s1-t1" name="Add two items to the carts and check returning customers message is displayed" line="7">
+<kw name="Go to site local quicksite" library="checkout_page_resources">
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>10</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20230422 14:40:17.287" endtime="20230422 14:40:17.288"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230422 14:40:17.288" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230422 14:40:17.288" endtime="20230422 14:40:19.371"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME PAGE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230422 14:40:19.372" level="INFO">Opening url 'http://localhost/quicksite/'</msg>
+<status status="PASS" starttime="20230422 14:40:19.371" endtime="20230422 14:40:23.818"/>
+</kw>
+<status status="PASS" starttime="20230422 14:40:17.287" endtime="20230422 14:40:23.818"/>
+</kw>
+<kw name="add two items to the cart" library="checkout_page_resources">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ITEM BEANIE}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230422 14:40:23.822" level="INFO">Clicking element 'CSS=.button[data-product_id="16"]'.</msg>
+<status status="PASS" starttime="20230422 14:40:23.820" endtime="20230422 14:40:23.943"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${VIEW ITEMS CART}</arg>
+<arg>1 item</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230422 14:40:23.944" endtime="20230422 14:40:25.969"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ITEM ALBUM}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230422 14:40:25.971" level="INFO">Clicking element 'CSS=.button[data-product_id="24"]'.</msg>
+<status status="PASS" starttime="20230422 14:40:25.970" endtime="20230422 14:40:26.043"/>
+</kw>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${VIEW ITEMS CART}</arg>
+<arg>2 items</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20230422 14:40:26.043" endtime="20230422 14:40:27.290"/>
+</kw>
+<status status="PASS" starttime="20230422 14:40:23.819" endtime="20230422 14:40:27.290"/>
+</kw>
+<kw name="verfiy returning customer message" library="checkout_page_resources">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CART}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230422 14:40:27.291" level="INFO">Opening url 'http://localhost/quicksite/cart/'</msg>
+<status status="PASS" starttime="20230422 14:40:27.291" endtime="20230422 14:40:28.996"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${CHECKOUT BUTTON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230422 14:40:28.997" level="INFO">Clicking element 'css=a.checkout-button'.</msg>
+<status status="PASS" starttime="20230422 14:40:28.996" endtime="20230422 14:40:31.208"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${RETURN CUSTOMER DISPLAY}</arg>
+<arg>${RETURN CUSTOMER MSG}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230422 14:40:31.210" level="INFO">Verifying element 'css=div.woocommerce-form-login-toggle' contains exact text 'Returning customer? Click here to login'.</msg>
+<status status="PASS" starttime="20230422 14:40:31.209" endtime="20230422 14:40:31.388"/>
+</kw>
+<status status="PASS" starttime="20230422 14:40:27.290" endtime="20230422 14:40:31.389"/>
+</kw>
+<status status="PASS" starttime="20230422 14:40:17.286" endtime="20230422 14:40:31.390"/>
+</test>
+<status status="PASS" starttime="20230422 14:40:16.867" endtime="20230422 14:40:31.392"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Returning Customer Clean">Returning Customer Clean</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230420 16:23:09.670" rpa="false" schemaversion="4">
+<suite id="s1" name="Number Of Products Displayed" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\Homepage\number_of_products_displayed.robot">
+<test id="s1-t1" name="Home page should have 16 items displayed" line="6">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230420 16:23:10.106" level="INFO">Opening browser 'Firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20230420 16:23:10.107" level="INFO">Firefox driver log is always forced to to: C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\Homepage\geckodriver-1.log</msg>
+<status status="PASS" starttime="20230420 16:23:10.105" endtime="20230420 16:23:18.396"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://demostore.supersqa.com/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230420 16:23:18.397" level="INFO">Opening url 'http://demostore.supersqa.com/'</msg>
+<status status="PASS" starttime="20230420 16:23:18.397" endtime="20230420 16:23:21.054"/>
+</kw>
+<kw name="Verify 16 Products Are Displayed" library="demostore.homepage.homepage">
+<doc>returns:</doc>
+<msg timestamp="20230420 16:23:21.088" level="INFO">Checking if products are on page.</msg>
+<status status="PASS" starttime="20230420 16:23:21.055" endtime="20230420 16:23:21.491"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230420 16:23:21.491" endtime="20230420 16:23:24.957"/>
+</kw>
+<status status="PASS" starttime="20230420 16:23:10.104" endtime="20230420 16:23:24.958"/>
+</test>
+<status status="PASS" starttime="20230420 16:23:09.672" endtime="20230420 16:23:24.960"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Number Of Products Displayed">Number Of Products Displayed</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

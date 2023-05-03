@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230420 17:19:22.543" rpa="false" schemaversion="4">
+<suite id="s1" name="Search" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\Search\search.robot">
+<test id="s1-t1" name="User should able to search for an existing product" line="17">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230420 17:19:22.891" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230420 17:19:22.890" endtime="20230420 17:19:24.678"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME PAGE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230420 17:19:24.687" level="INFO">Opening url 'http://demostore.supersqa.com/'</msg>
+<status status="PASS" starttime="20230420 17:19:24.687" endtime="20230420 17:19:27.455"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SEARCH FIELD ID}</arg>
+<arg>${EXISTING iTEM SEARCH TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230420 17:19:27.459" level="INFO">Typing text 'album' into text field 'woocommerce-product-search-field-0'.</msg>
+<status status="PASS" starttime="20230420 17:19:27.457" endtime="20230420 17:19:27.584"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SEARCH FIELD ID}</arg>
+<arg>${ASCI CODE FOR ENTER}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230420 17:19:27.587" level="INFO">Sending key(s) ('RETURN',) to woocommerce-product-search-field-0 element.</msg>
+<msg timestamp="20230420 17:19:27.898" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230420 17:19:27.898" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230420 17:19:27.586" endtime="20230420 17:19:28.851"/>
+</kw>
+<kw name="Location Should Contain" library="SeleniumLibrary">
+<arg>${EXPECTED URL TEXT}</arg>
+<doc>Verifies that the current URL contains ``expected``.</doc>
+<msg timestamp="20230420 17:19:28.871" level="INFO">Current location contains '/product/album/'.</msg>
+<status status="PASS" starttime="20230420 17:19:28.852" endtime="20230420 17:19:28.872"/>
+</kw>
+<status status="PASS" starttime="20230420 17:19:22.889" endtime="20230420 17:19:28.872"/>
+</test>
+<test id="s1-t2" name="User should see correct message when searching none existing item" line="24">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230420 17:19:28.881" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20230420 17:19:28.880" endtime="20230420 17:19:30.767"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME PAGE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230420 17:19:30.769" level="INFO">Opening url 'http://demostore.supersqa.com/'</msg>
+<status status="PASS" starttime="20230420 17:19:30.768" endtime="20230420 17:19:33.242"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${SEARCH FIELD ID}</arg>
+<arg>${NON EXISTING iTEM SEARCH TERM}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230420 17:19:33.246" level="INFO">Typing text 'Fluying Ninja' into text field 'woocommerce-product-search-field-0'.</msg>
+<status status="PASS" starttime="20230420 17:19:33.243" endtime="20230420 17:19:33.396"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SEARCH FIELD ID}</arg>
+<arg>${ASCI CODE FOR ENTER}</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230420 17:19:33.398" level="INFO">Sending key(s) ('RETURN',) to woocommerce-product-search-field-0 element.</msg>
+<msg timestamp="20230420 17:19:33.704" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230420 17:19:33.705" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230420 17:19:33.397" endtime="20230420 17:19:34.146"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>class=${MSG BOX CLASS}</arg>
+<arg>${NOT FOUND MSG}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20230420 17:19:34.150" level="INFO">Verifying element 'class=woocommerce-info' contains exact text 'No products were found matching your selection.'.</msg>
+<status status="PASS" starttime="20230420 17:19:34.147" endtime="20230420 17:19:34.191"/>
+</kw>
+<status status="PASS" starttime="20230420 17:19:28.878" endtime="20230420 17:19:34.191"/>
+</test>
+<status status="PASS" starttime="20230420 17:19:22.545" endtime="20230420 17:19:34.195"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Search">Search</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

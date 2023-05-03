@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230419 00:44:33.188" rpa="false" schemaversion="4">
+<suite id="s1" name="My Account" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoTestCases\my_account.robot">
+<test id="s1-t1" name="Valid Login" line="10">
+<kw name="Open Browser To Login Page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230419 00:44:33.570" level="INFO">Opening browser 'Firefox' to base url 'http://localhost/quicksite/'.</msg>
+<msg timestamp="20230419 00:44:33.571" level="INFO">Firefox driver log is always forced to to: C:\Users\estev\Robotcourse\RobotCourseFiles\DemoTestCases\geckodriver-4.log</msg>
+<status status="PASS" starttime="20230419 00:44:33.568" endtime="20230419 00:44:42.633"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Quick Site</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20230419 00:44:42.637" level="INFO">Page title is 'Quick Site'.</msg>
+<status status="PASS" starttime="20230419 00:44:42.633" endtime="20230419 00:44:42.637"/>
+</kw>
+<status status="PASS" starttime="20230419 00:44:33.568" endtime="20230419 00:44:42.638"/>
+</kw>
+<kw name="Search For Beanies">
+<arg>beanie</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>css=input#woocommerce-product-search-field-0</arg>
+<arg>${search}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230419 00:44:42.678" level="INFO">Typing text 'beanie' into text field 'css=input#woocommerce-product-search-field-0'.</msg>
+<status status="PASS" starttime="20230419 00:44:42.676" endtime="20230419 00:44:42.812"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>css=input#woocommerce-product-search-field-0</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230419 00:44:42.814" level="INFO">Sending key(s) ('RETURN',) to css=input#woocommerce-product-search-field-0 element.</msg>
+<msg timestamp="20230419 00:44:43.134" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230419 00:44:43.134" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230419 00:44:42.813" endtime="20230419 00:44:43.186"/>
+</kw>
+<status status="PASS" starttime="20230419 00:44:42.675" endtime="20230419 00:44:43.186"/>
+</kw>
+<kw name="No Operation" library="BuiltIn" type="TEARDOWN">
+<doc>Does absolutely nothing.</doc>
+<status status="PASS" starttime="20230419 00:44:43.188" endtime="20230419 00:44:43.188"/>
+</kw>
+<status status="PASS" starttime="20230419 00:44:33.566" endtime="20230419 00:44:43.191"/>
+</test>
+<doc>Simple example using SeleniumLibrary.</doc>
+<status status="PASS" starttime="20230419 00:44:33.191" endtime="20230419 00:44:43.212"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="My Account">My Account</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

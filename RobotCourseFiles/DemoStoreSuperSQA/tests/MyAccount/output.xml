@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1a1 (Python 3.11.1 on win32)" generated="20230423 21:30:29.265" rpa="false" schemaversion="4">
+<suite id="s1" name="Login Negative With Multi Setup Teardown2" source="C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\MyAccount\login_negative_with_multi_setup_teardown2.robot">
+<test id="s1-t1" name="Login without username and password should show correct error" line="10">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Open browser</arg>
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<arg>AND</arg>
+<arg>Go to</arg>
+<arg>${my_account_home_url}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230423 21:30:29.694" level="INFO">Opening browser 'Firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20230423 21:30:29.696" level="INFO">Firefox driver log is always forced to to: C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\MyAccount\geckodriver-3.log</msg>
+<status status="PASS" starttime="20230423 21:30:29.693" endtime="20230423 21:30:38.116"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${my_account_home_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230423 21:30:38.118" level="INFO">Opening url 'http://localhost/quicksite/my-account'</msg>
+<status status="PASS" starttime="20230423 21:30:38.116" endtime="20230423 21:30:42.183"/>
+</kw>
+<status status="PASS" starttime="20230423 21:30:29.693" endtime="20230423 21:30:42.183"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:30:42.192" level="INFO">Clicking element 'name=login'.</msg>
+<status status="PASS" starttime="20230423 21:30:42.190" endtime="20230423 21:30:44.032"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${act_msg}</var>
+<arg>${error_msg_box}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:30:44.134" level="INFO">${act_msg} = Error: Username is required.</msg>
+<status status="PASS" starttime="20230423 21:30:44.034" endtime="20230423 21:30:44.134"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${act_msg}</arg>
+<arg>Error: Username is required.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230423 21:30:44.141" endtime="20230423 21:30:44.142"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230423 21:30:44.142" endtime="20230423 21:30:47.772"/>
+</kw>
+<status status="PASS" starttime="20230423 21:30:29.692" endtime="20230423 21:30:47.773"/>
+</test>
+<test id="s1-t2" name="Login without password should show correct error" line="16">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Open browser</arg>
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<arg>AND</arg>
+<arg>Go to</arg>
+<arg>${my_account_home_url}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230423 21:30:47.778" level="INFO">Opening browser 'Firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20230423 21:30:47.779" level="INFO">Firefox driver log is always forced to to: C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\MyAccount\geckodriver-4.log</msg>
+<status status="PASS" starttime="20230423 21:30:47.777" endtime="20230423 21:30:55.285"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${my_account_home_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230423 21:30:55.285" level="INFO">Opening url 'http://localhost/quicksite/my-account'</msg>
+<status status="PASS" starttime="20230423 21:30:55.285" endtime="20230423 21:30:58.847"/>
+</kw>
+<status status="PASS" starttime="20230423 21:30:47.776" endtime="20230423 21:30:58.847"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${user_name_field}</arg>
+<arg>${fakename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230423 21:30:58.848" level="INFO">Typing text 'fakename' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20230423 21:30:58.847" endtime="20230423 21:30:59.147"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:30:59.148" level="INFO">Clicking element 'name=login'.</msg>
+<status status="PASS" starttime="20230423 21:30:59.147" endtime="20230423 21:31:01.171"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${act_msg}</var>
+<arg>${error_msg_box}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:31:01.489" level="INFO">${act_msg} = Error: The password field is empty.</msg>
+<status status="PASS" starttime="20230423 21:31:01.182" endtime="20230423 21:31:01.489"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${act_msg}</arg>
+<arg>Error: The password field is empty.</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230423 21:31:01.489" endtime="20230423 21:31:01.490"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230423 21:31:01.491" endtime="20230423 21:31:05.740"/>
+</kw>
+<status status="PASS" starttime="20230423 21:30:47.775" endtime="20230423 21:31:05.740"/>
+</test>
+<test id="s1-t3" name="Login with invalid username and password should show correct error" line="24">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Open browser</arg>
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<arg>AND</arg>
+<arg>Go to</arg>
+<arg>${my_account_home_url}</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>Firefox</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230423 21:31:05.745" level="INFO">Opening browser 'Firefox' to base url 'about:blank'.</msg>
+<msg timestamp="20230423 21:31:05.747" level="INFO">Firefox driver log is always forced to to: C:\Users\estev\Robotcourse\RobotCourseFiles\DemoStoreSuperSQA\tests\MyAccount\geckodriver-5.log</msg>
+<status status="PASS" starttime="20230423 21:31:05.744" endtime="20230423 21:31:14.921"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${my_account_home_url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230423 21:31:14.921" level="INFO">Opening url 'http://localhost/quicksite/my-account'</msg>
+<status status="PASS" starttime="20230423 21:31:14.921" endtime="20230423 21:31:22.545"/>
+</kw>
+<status status="PASS" starttime="20230423 21:31:05.743" endtime="20230423 21:31:22.545"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${user_name_field}</arg>
+<arg>${fakename}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230423 21:31:22.567" level="INFO">Typing text 'fakename' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20230423 21:31:22.566" endtime="20230423 21:31:22.813"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${user_password_field}</arg>
+<arg>${fakepassword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230423 21:31:22.815" level="INFO">Typing text 'fakepassword' into text field 'name=password'.</msg>
+<status status="PASS" starttime="20230423 21:31:22.814" endtime="20230423 21:31:22.866"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${login_button}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:31:22.868" level="INFO">Clicking element 'name=login'.</msg>
+<status status="PASS" starttime="20230423 21:31:22.867" endtime="20230423 21:31:25.045"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${act_msg}</var>
+<arg>${error_msg_box}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230423 21:31:25.412" level="INFO">${act_msg} = Error: The username fakename is not registered on this site. If you are unsure of your username, try your email address instead.</msg>
+<status status="PASS" starttime="20230423 21:31:25.107" endtime="20230423 21:31:25.412"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${act_msg}</arg>
+<arg>${invalid_username_password}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230423 21:31:25.412" endtime="20230423 21:31:25.412"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230423 21:31:25.413" endtime="20230423 21:31:29.028"/>
+</kw>
+<status status="PASS" starttime="20230423 21:31:05.742" endtime="20230423 21:31:29.028"/>
+</test>
+<status status="PASS" starttime="20230423 21:30:29.269" endtime="20230423 21:31:29.032"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="0" skip="0" id="s1" name="Login Negative With Multi Setup Teardown2">Login Negative With Multi Setup Teardown2</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
